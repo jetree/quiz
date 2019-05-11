@@ -1,0 +1,60 @@
+body{
+  margin:0 auto;
+  padding: 0;
+  font-family: "YuGothicM" "Hiragino Kaku Gothic ProN","メイリオ", 'arial black';
+
+}
+
+.bg-color1{
+  background-color: 	#002752;
+}
+.bg-color2{
+  background-color: 	#CDDCDF;
+}
+
+.text-color{
+  color: #fff;
+}
+
+a:link{
+  color: #fff;
+}
+a:visited{
+  color: #fff;
+}
+a:active{
+  color: #fff;
+}
+.q-and-a{
+  border-radius: 10px;
+  background-color: #fff;
+}
+.ques{
+  height: 100px;
+  width: 90%;
+  border: solid 2px #333;
+  display: flex;
+  justify-content: space-around;
+}
+
+.answer{
+  border-radius: 10px;
+  margin-bottom: 8px;
+  width: 90%;
+}
+.blue{
+  background-color: blue;
+  color: #fff;
+}
+.red{
+  background-color: red;
+  color: #fff;
+}
+.green{
+  background-color: green;
+  color: #fff;
+}
+.yellow{
+  background-color: yellow;
+  color: #000;
+}
