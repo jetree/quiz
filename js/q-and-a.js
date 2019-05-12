@@ -26,11 +26,14 @@ let qa = document.createElement('div');
 //生成したdivにclassを追加
   qa.classList.add('q-and-a','my-3','py-2');
 let qTextOuter = document.createElement('div');
-  qTextOuter.classlist.add("text-center ques mx-auto my-2")
-let qTextinner = document.createElement('div');
-  qTextinner.classList.add("my-auto")
+  qTextOuter.classlist.add('text-center','ques','mx-auto','my-2');
+let qTextInner = document.createElement('div');
+  qTextInner.classList.add('my-auto');
+  qTextInner.innerHTML = '問題文';
 
 //このdivをHTMLに追加する
+qa.appendChild(qTextOuter);
+qTextOuter.appendChild(qTextInner)
 document.getElementById('container').appendChild(qa);
 // 問題を
 // 問題を問題Listの配列に入れる
