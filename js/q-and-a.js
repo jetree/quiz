@@ -1,41 +1,29 @@
+//問題を定義
 function question(q,a1,a2,a3,a4){
-  this.q =  q;
-  this.a1 = a1;
-  this.a2 = a2;
-  this.a3 = a3;
-  this.a4 = a4;
+  this.q =  q;  //問題文
+  this.a1 = a1;  //正答
+  this.a2 = a2;  //誤答1
+  this.a3 = a3;  //誤答2
+  this.a4 = a4;  //誤答3
 };
+
 let qList = [];
-  qList[0] = new question(
-    "問題",
-    "回答1",
-    "回答2",
-    "回答3",
-    "回答4",
-  );
-  qList[1] = new question(
-    "問題2",
-    "回答12",
-    "回答23",
-    "回答34",
-    "回答45",
-  );
+ 
   qList.push(new question(
-    "問題2",
-    "回答12",
-    "回答23",
-    "回答34",
-    "回答45",
+    "日本一高い山は？",
+    "富士山",
+    "高尾山",
+    "阿蘇山",
+    "エベレスト",
   ));
 
 console.log(qList)
 
-let array =[];
-  array.push(1);
+//divを生成
+let div =document.createElement('div');
+//生成したdivにclassを追加
 
-
-  console.log(array);
-
+//このdivをHTMLに追加する
 
 // 問題を
 // 問題を問題Listの配列に入れる
