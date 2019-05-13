@@ -25,22 +25,28 @@ a:visited{
 a:active{
   color: #fff;
 }
-.q-and-a{
+.qa-box{
   border-radius: 10px;
   background-color: #fff;
 }
-.ques{
-  height: 100px;
+.question{
+  min-height: 200px;
   width: 90%;
   border: solid 2px #333;
   display: flex;
   justify-content: space-around;
+}
+.question-text{
+  width: 80%;
+  font-size: 20px;
+
 }
 
 .answer{
   border-radius: 10px;
   margin-bottom: 8px;
   width: 90%;
+  font-size: 18px;
 }
 .blue{
   background-color: blue;

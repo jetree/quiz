@@ -21,20 +21,42 @@
 //
 // console.log(qList)
 
+// function divCreate(divname){
+//   divname = document.createElement('div');
+// }
+// divCreate('qaBox');
+// divCreate('questionBox');
+// divCreate('qText');
+// divCreate('answerBoxext');
+// divCreate('answer');
+
 //divを生成
-let qa = document.createElement('div');
+let qaBox = document.createElement('div');
 //生成したdivにclassを追加
-  qa.classList.add('q-and-a','my-3','py-2');
-let qTextOuter = document.createElement('div');
-  qTextOuter.classlist.add('text-center','ques','mx-auto','my-2');
-let qTextInner = document.createElement('div');
-  qTextInner.classList.add('my-auto');
-  qTextInner.innerHTML = '問題文';
+  qaBox.classList.add('qa-box','my-3','py-2');
+//divを生成
+let questionBox = document.createElement('div');
+//生成したdivにclassを追加
+  questionBox.classList.add('question','mx-auto','my-2');
+  //divを生成
+let qText = document.createElement('div');
+//生成したdivにclassを追加
+  qText.classList.add('question-text','my-auto');
+//生成したdivに問題文のテキストを追加
+  qText.innerHTML = '問題文';
+//divを生成
+let answerBox = document.createElement('div');
+  answerBox.classList.add('answer-box','text-center')
+let answer = document.createElement('div');
+  answer.classList.add('answer','mx-auto');
+  answer.innerHTML = '選択肢';
 
 //このdivをHTMLに追加する
-qa.appendChild(qTextOuter);
-qTextOuter.appendChild(qTextInner)
-document.getElementById('container').appendChild(qa);
+qaBox.appendChild(questionBox);
+qaBox.appendChild(answerBox);
+answerBox.appendChild(answer);
+questionBox.appendChild(qText);
+document.getElementById('container').appendChild(qaBox);
 // 問題を
 // 問題を問題Listの配列に入れる
 // 問題Listの配列からdivを生成する（foreach）
