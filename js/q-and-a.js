@@ -22,90 +22,59 @@ new question(
    "阿蘇山",
    "エベレスト",
  );
+new question(
+   "1+1は？",
+   "2",
+   "3",
+   "4",
+   "5",
+ );
 
-//
-// let qList = [];
-//
-//   qList.push(new question(
-//     "日本一高い山は？",
-//     "富士山",
-//     "高尾山",
-//     "阿蘇山",
-//     "エベレスト",
-//   ));
-//
-// console.log(qList)
 
-for (let i = 0; i < qList.length; i++){
+console.log(qList)
 
-//divやul,liを生成
-let qaBox = document.createElement('div');
-let questionBox = document.createElement('div');
-let qText = document.createElement('div')
-let answerBox = document.createElement('ul');
-let answer = document.createElement('li');
+  for (let i = 0; i < qList.length; i++){
+    //divやul,liを生成
+    let qaBox = document.createElement('div');
+    let questionBox = document.createElement('div');
+    let qText = document.createElement('div')
+    let answerBox = document.createElement('ul');
 
-//生成したdivなどにclassを追加
-qaBox.classList.add('qa-box','my-3','py-2');
-questionBox.classList.add('question','mx-auto','my-2');
-qText.classList.add('question-text','my-auto');
-answerBox.classList.add('answer-box','text-center')
-answer.classList.add('answer','mx-auto');
 
-//問題文や選択肢を入力
-qText.textContent = qList[i][0];
+    //生成したdivなどにclassを追加
+    qaBox.classList.add('qa-box','my-3','py-2');
+    questionBox.classList.add('question','mx-auto','my-2');
+    qText.classList.add('question-text','my-auto');
+    answerBox.classList.add('answer-box','text-center');
 
-for (let n = 0; n < qList[i].length; n++){
- answer.textContent = qList[i][1][n];
+    //問題文や選択肢を入力
+    qText.textContent = qList[i][0];
+
+    // 4つの選択肢を表示
+    for (let n = 0; n < qList[i][1].length; n++){
+      let answer = document.createElement('li');
+      answer.textContent = qList[i][1][n];
+      answer.classList.add('answer','mx-auto');
+      answerBox.appendChild(answer);
+
+      // 選択肢の順番で色のclassを追加
+      if(n == 0){
+        answer.classList.add('blue');
+      }else if (n == 1) {
+        answer.classList.add('red');
+      }else if (n == 2) {
+        answer.classList.add('green');
+      }else{
+        answer.classList.add('yellow');
+      }
+
+    }
+
+    // HTMLの表示
+    qaBox.appendChild(questionBox);
+    qaBox.appendChild(answerBox);
+    questionBox.appendChild(qText);
+    document.getElementById('container').appendChild(qaBox);
+
+  }
 }
-
-
-}
-//let qaBox = document.createElement('div');
-//生成したdivにclassを追加
-//  qaBox.classList.add('qa-box','my-3','py-2');
-//divを生成
-//let questionBox = document.createElement('div');
-//生成したdivにclassを追加
-//questionBox.classList.add('question','mx-auto','my-2');
-  //divを生成
-//let qText = document.createElement('div');
-//生成したdivにclassを追加
-//qText.classList.add('question-text','my-auto');
-//生成したdivに問題文のテキストを追加
-//qText.innerHTML = '問題文';
-//divを生成
-//let answerBox = document.createElement('div');
-//  answerBox.classList.add('answer-box','text-center')
-//let answer = document.createElement('div');
-  answer.classList.add('answer','mx-auto');
-  answer.innerHTML = '選択肢';
-
-//このdivをHTMLに追加する
-qaBox.appendChild(questionBox);
-qaBox.appendChild(answerBox);
-answerBox.appendChild(answer);
-questionBox.appendChild(qText);
-document.getElementById('container').appendChild(qaBox);
-// 問題を
-// 問題を問題Listの配列に入れる
-// 問題Listの配列からdivを生成する（foreach）
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

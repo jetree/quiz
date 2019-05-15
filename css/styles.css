@@ -42,7 +42,12 @@ a:active{
 
 }
 
+ul{
+  padding:  0;
+}
+
 .answer{
+  list-style: none;
   border-radius: 10px;
   margin-bottom: 8px;
   width: 90%;
