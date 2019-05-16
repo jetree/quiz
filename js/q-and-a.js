@@ -30,6 +30,14 @@ new question(
    "5",
  );
 
+//選択肢のシャッフル関数を定義
+function shuffle(arr){
+  for (let i = arr.length - 1; i < 0; i--){
+   const j =math.floor(math(random()*i + 1));
+   [arr[j],arr[i]] = [arr[i],arr[j]];
+   return arr;
+  }
+}
 
 console.log(qList)
 
