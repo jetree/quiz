@@ -58,10 +58,15 @@ console.log(qList)
     //問題文や選択肢を入力
     qText.textContent = qList[i][0];
 
+    //選択肢をシャッフルする
+    //スプレッド演算子を使用し、元の配列順はそのまま
+      shuffledChoices = shuffle([...qList[i][1]]);
+
     // 4つの選択肢を表示
-    for (let n = 0; n < qList[i][1].length; n++){
+    for (let n = 0; n < shuffledChoices.length; n++){
+
       let answer = document.createElement('li');
-      answer.textContent = qList[i][1][n];
+      answer.textContent = shuffledChoices[n];
       answer.classList.add('answer','mx-auto');
       answerBox.appendChild(answer);
 
