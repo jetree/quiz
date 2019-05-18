@@ -62,7 +62,7 @@ console.log(qList)
 
     //選択肢をシャッフルする
     //スプレッド演算子を使用し、元の配列順はそのまま
-      let shuffledChoices = shuffle([...qList[i][1]]);
+      const shuffledChoices = shuffle([...qList[i][1]]);
       console.log(shuffledChoices);
 
     // 4つの選択肢を表示
