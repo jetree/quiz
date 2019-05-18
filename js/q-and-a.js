@@ -32,11 +32,11 @@ new question(
 
 //選択肢のシャッフル関数を定義
 function shuffle(arr){
-  for (let i = arr.length - 1; i < 0; i--){
-   const j =math.floor(math(random()*i + 1));
+  for (let i = arr.length - 1; i > 0; i--){
+   const j = Math.floor(Math.random()*(i + 1));
    [arr[j],arr[i]] = [arr[i],arr[j]];
-   return arr;
   }
+  return arr;
 }
 
 console.log(qList)
@@ -57,10 +57,13 @@ console.log(qList)
 
     //問題文や選択肢を入力
     qText.textContent = qList[i][0];
+    console.log(qList[i][1]);
+
 
     //選択肢をシャッフルする
     //スプレッド演算子を使用し、元の配列順はそのまま
-      shuffledChoices = shuffle([...qList[i][1]]);
+      let shuffledChoices = shuffle([...qList[i][1]]);
+      console.log(shuffledChoices);
 
     // 4つの選択肢を表示
     for (let n = 0; n < shuffledChoices.length; n++){
