@@ -29,12 +29,18 @@ a:active{
   border-radius: 10px;
   background-color: #fff;
 }
+.mask{
+  background-color: #666;
+  width: 100%;
+  height: 100%;
+}
 .question{
   min-height: 200px;
   width: 90%;
   border: solid 2px #333;
   display: flex;
   justify-content: space-around;
+  position: relative;
 }
 .question-text{
   width: 80%;
@@ -52,7 +58,12 @@ ul{
   margin-bottom: 8px;
   width: 90%;
   font-size: 18px;
+  cursor: pointer;
 }
+.answer:hover{
+  opacity: 0.4;
+}
+
 .blue{
   background-color: blue;
   color: #fff;
@@ -68,4 +79,33 @@ ul{
 .yellow{
   background-color: yellow;
   color: #000;
+}
+
+.result{
+  color: red;
+  font-size: 180px;
+  text-align: center;
+  line-height:  1;
+  position: absolute;
+  top:0;
+  left:0;
+  right:0;
+  bottom: 0;
+  margin: auto;
+}
+.hidden{
+  display: none;
+}
+.OK{
+  color: red;
+}
+.NG{
+  color: blue;
+}
+
+footer{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }

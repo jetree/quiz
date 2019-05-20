@@ -39,6 +39,17 @@ function shuffle(arr){
   return arr;
 }
 
+//正誤判定
+function answerCheck(answer,arr){
+  if (answer.textContent === arr[0]){
+    return 'OK';
+  }
+  else {
+    return 'NG';
+  }
+
+}
+
 console.log(qList)
 
   for (let i = 0; i < qList.length; i++){
@@ -47,13 +58,14 @@ console.log(qList)
     let questionBox = document.createElement('div');
     let qText = document.createElement('div')
     let answerBox = document.createElement('ul');
-
+    let result = document.createElement('div');
 
     //生成したdivなどにclassを追加
     qaBox.classList.add('qa-box','my-3','py-2');
     questionBox.classList.add('question','mx-auto','my-2');
     qText.classList.add('question-text','my-auto');
     answerBox.classList.add('answer-box','text-center');
+    result.classList.add('result','hidden');
 
     //問題文や選択肢を入力
     qText.textContent = qList[i][0];
@@ -61,17 +73,34 @@ console.log(qList)
 
 
     //選択肢をシャッフルする
+    //元の選択肢を定数化
+      const choices = qList[i][1]
     //スプレッド演算子を使用し、元の配列順はそのまま
       const shuffledChoices = shuffle([...qList[i][1]]);
-      console.log(shuffledChoices);
 
-    // 4つの選択肢を表示
+
+      // 4つの選択肢を表示
     for (let n = 0; n < shuffledChoices.length; n++){
 
       let answer = document.createElement('li');
       answer.textContent = shuffledChoices[n];
       answer.classList.add('answer','mx-auto');
       answerBox.appendChild(answer);
+
+      // クリックイベントを追加
+      answer.addEventListener('click',()=> {
+        // 処理内容
+        result.classList.remove('hidden');
+        if (answerCheck(answer,choices) == 'OK'){
+          result.textContent = '○';
+          result.classList.add('OK');
+          result.classList.remove('NG');
+        }else{
+          result.textContent = '✖';
+          result.classList.add('NG');
+          result.classList.add('OK');
+        }
+      },false);
 
       // 選択肢の順番で色のclassを追加
       if(n == 0){
@@ -90,6 +119,7 @@ console.log(qList)
     qaBox.appendChild(questionBox);
     qaBox.appendChild(answerBox);
     questionBox.appendChild(qText);
+    questionBox.appendChild(result);
     document.getElementById('container').appendChild(qaBox);
 
   }
