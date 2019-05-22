@@ -5,17 +5,18 @@
 let qList = [];
 
 //問題$questionを定義
-function question(q,a0,a1,a2,a3,){
+function question(j,q,a0,a1,a2,a3,){
 
   let choices = [a0,a1,a2,a3]  //選択肢の配列
 
-  let qArray = [q,choices]  //[問題,選択肢]
+  let qArray = [j,q,choices]  //[ジャンル,問題,選択肢]
 
   qList.push(qArray)  //qListnに追加
 
  }
 
 new question(
+   "地理",
    "日本一高い山は？",
    "富士山",
    "高尾山",
@@ -23,11 +24,44 @@ new question(
    "エベレスト",
  );
 new question(
-   "1+1は？",
-   "2",
-   "3",
-   "4",
-   "5",
+   "理科",
+   "次のうちトゲがない昆虫は？",
+   "トゲナシトゲトゲ",
+   "トゲトゲ",
+   "トゲアリトゲナシトゲトゲ",
+   "どれもトゲがある",
+ );
+new question(
+   "国語",
+   "次の書き出しで始まる文学作品は？<br>「私はその人を常に先生と呼んでいた・・・」",
+   "こころ",
+   "人間失格",
+   "吾輩は猫である",
+   "坊っちゃん",
+ );
+new question(
+   "数学",
+   "次の数列の名称は何か？<br>1　1　2　3　5　8・・・",
+   "フィボナッチ数列",
+   "階差数列",
+   "等差数列",
+   "等比数列",
+ );
+new question(
+   "日本史",
+   "唯一くじ引きによって選ばれた将軍は誰か？",
+   "足利義教",
+   "足利義満",
+   "足利尊氏",
+   "足利義政",
+ );
+new question(
+   "歴史",
+   "この中で日本の紙幣の肖像画に採用されたことがあるのは誰？",
+   "高橋是清",
+   "織田信長",
+   "西園寺公望",
+   "桂太郎",
  );
 
 //選択肢のシャッフル関数を定義
@@ -62,21 +96,19 @@ console.log(qList)
 
     //生成したdivなどにclassを追加
     qaBox.classList.add('qa-box','my-3','py-2');
-    questionBox.classList.add('question','mx-auto','my-2');
+    questionBox.classList.add('question','mx-auto','my-3');
     qText.classList.add('question-text','my-auto');
-    answerBox.classList.add('answer-box','text-center');
+    answerBox.classList.add('answer-box','text-center','close');
     result.classList.add('result','hidden');
 
-    //問題文や選択肢を入力
+    //ジャンルを入力
     qText.textContent = qList[i][0];
-    console.log(qList[i][1]);
-
 
     //選択肢をシャッフルする
     //元の選択肢を定数化
-      const choices = qList[i][1]
+      const choices = qList[i][2]
     //スプレッド演算子を使用し、元の配列順はそのまま
-      const shuffledChoices = shuffle([...qList[i][1]]);
+      const shuffledChoices = shuffle([...qList[i][2]]);
 
 
       // 4つの選択肢を表示
@@ -84,10 +116,16 @@ console.log(qList)
 
       let answer = document.createElement('li');
       answer.textContent = shuffledChoices[n];
-      answer.classList.add('answer','mx-auto');
+      answer.classList.add('answer','mx-auto','py-1');
       answerBox.appendChild(answer);
 
-      // クリックイベントを追加
+      // クリックイベントを追加(問題オープン)
+      questionBox.addEventListener('click',()=> {
+        // 問題文・選択肢を表示
+        qText.innerHTML = qList[i][1];
+        answerBox.classList.remove('close')
+      },false);
+      // クリックイベントを追加(正誤判定)
       answer.addEventListener('click',()=> {
         // 処理内容
         result.classList.remove('hidden');
